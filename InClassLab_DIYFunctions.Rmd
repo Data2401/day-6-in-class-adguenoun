@@ -15,32 +15,76 @@ The questions from your notes today are below, please copy your answers them her
 
 1. Write your own function that takes the temperature in Fahrenheit as an argument and returns the Celcius equivalent. 
 
-```{R}
+```{R -temp converter}
+temp_convert <- function(fahrenheit) {
+  celcius <- (fahrenheit-32)*(5/9)
+  celcius
+}
 
+temp_convert(32)
 
 ```
 
 2. Expand that function so that it takes a temperature in Fahrenheit and a distance in feet and returns **both** the temperature in Celcius and the distance in meters (you'll likely need to remember the `c()` function!)
 
 
-```{r}
+```{r -Temperature and feet}
+temp_feet_convert <- function(fahrenheit, feet) {
+  celcius <- (fahrenheit-32)*(5/9)
+  celcius
+  
+  meters <- feet * .3048
+  
+  c(celcius, meters)
+}
 
-
+temp_feet_convert(32, 12)
 ```
 
 
 3. Write a function that prints out a statement of whether the number passed as an argument is positive, negative or 0. 
 
-```{R}
+```{R -Number sorter}
+pos_or_neg <- function(number) {
+  # ifs
+  if(number > 0) {
+    statement <- "positive"
+  }
+    else if (number < 0) {
+    statement <- "negative"
+  } 
+    else if (number == 0) {
+    statement <- "zero"
+    }
+  else  {
+    statement <- "Hello World"
+  }
+    statement
+}
+# test results
 
-
+pos_or_neg(12)
+pos_or_neg(-2)
+pos_or_neg(0)
 ```
 
 4. Write a function that returns the absolute value of the number passed as an argument.
    + Don't use `abs()`. Use the flow from problem 1 and multiply by negative one as necessary. 
    
-```{r}
+```{r -absolute value hard way}
+abs_value <- function(number) {
+  if (number >= 0) {
+    absvalue <- number
+  }
+    else if (number < 0) {
+      absvalue <- number * -1
+    }
+  absvalue
+}
 
+abs_value(-124)
+abs_value(0)
+abs_value(424013551)
 
 ```
 
