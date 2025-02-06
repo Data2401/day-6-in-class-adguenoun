@@ -47,7 +47,11 @@ temp_feet_convert(32, 12)
 ```{R -Number sorter}
 pos_or_neg <- function(number) {
   # ifs
-  if(number > 0) {
+  if (is.character(number)) {
+    statement <- "Please pass a numerical value to this function"
+  }
+    else if (is.numeric(number)) {
+   if(number > 0) {
     statement <- "positive"
   }
     else if (number < 0) {
@@ -59,6 +63,7 @@ pos_or_neg <- function(number) {
   else  {
     statement <- "Hello World"
   }
+  }
     statement
 }
 # test results
@@ -66,6 +71,7 @@ pos_or_neg <- function(number) {
 pos_or_neg(12)
 pos_or_neg(-2)
 pos_or_neg(0)
+pos_or_neg("string")
 ```
 
 4. Write a function that returns the absolute value of the number passed as an argument.
@@ -73,27 +79,44 @@ pos_or_neg(0)
    
 ```{r -absolute value hard way}
 abs_value <- function(number) {
-  if (number >= 0) {
-    absvalue <- number
+  
+   if (is.character(number)) {
+    absvalue <- "Please pass a numerical value to this function"
   }
+  else if (is.numeric(number)) {
+     if (number >= 0) {
+    absvalue <- number
+    }
     else if (number < 0) {
       absvalue <- number * -1
     }
+  }
   absvalue
 }
 
 abs_value(-124)
 abs_value(0)
 abs_value(424013551)
+abs_value("string")
 
 ```
 
 5. Hard mode: add an error check to that function that prints out the string "Please pass a numerical value to this function" if the user passes the function a string. 
    + There are functions that check and return T/F: `is.numeric()` or `is.character()` would be relevant here
    
-```{r}
-
-
+```{r - Hard Mode??}
+hard_mode <- function(check) {
+  if (is.character(check)) {
+    statement <- "Please pass a numerical value to this function"
+  }
+    else if (is.numeric(check)) {
+      statement <- "good job buddy"
+    }
+  statement
+}
+  
+hard_mode("same time tomorrow?")
+hard_mode(315)
 
 ```
    

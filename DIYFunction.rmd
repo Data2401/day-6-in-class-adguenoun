@@ -1,6 +1,6 @@
 ---
 title: "DIY Functions"
-author: "Dr. Shoemaker"
+author: "Adam Guenoun"
 date: "DATA 2401"
 output: 
   slidy_presentation: 
@@ -121,7 +121,7 @@ Note that you'll need to rerun the function to use it in the future, you should 
 1. Write your own function that takes the temperature in Fahrenheit as an argument and returns the Celcius equivalent. 
 2. Expand that function so that it takes a temperature in Fahrenheit and a distance in feet and returns **both** the temperature in Celcius and the distance in meters (you'll likely need to remember the `c()` function!)
 
-````{R convert_fn}
+```{R convert_fn}
 
 
 

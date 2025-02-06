@@ -399,7 +399,11 @@ passed as an argument is positive, negative or 0.</li>
 </ol>
 <pre class="r"><code>pos_or_neg &lt;- function(number) {
   # ifs
-  if(number &gt; 0) {
+  if (is.character(number)) {
+    statement &lt;- &quot;Please pass a numerical value to this function&quot;
+  }
+    else if (is.numeric(number)) {
+   if(number &gt; 0) {
     statement &lt;- &quot;positive&quot;
   }
     else if (number &lt; 0) {
@@ -411,6 +415,7 @@ passed as an argument is positive, negative or 0.</li>
   else  {
     statement &lt;- &quot;Hello World&quot;
   }
+  }
     statement
 }
 # test results
@@ -421,6 +426,8 @@ pos_or_neg(12)</code></pre>
 <pre><code>## [1] &quot;negative&quot;</code></pre>
 <pre class="r"><code>pos_or_neg(0)</code></pre>
 <pre><code>## [1] &quot;zero&quot;</code></pre>
+<pre class="r"><code>pos_or_neg(&quot;string&quot;)</code></pre>
+<pre><code>## [1] &quot;Please pass a numerical value to this function&quot;</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Write a function that returns the absolute value of the number
 passed as an argument.
@@ -430,12 +437,18 @@ multiply by negative one as necessary.</li>
 </ul></li>
 </ol>
 <pre class="r"><code>abs_value &lt;- function(number) {
-  if (number &gt;= 0) {
-    absvalue &lt;- number
+  
+   if (is.character(number)) {
+    absvalue &lt;- &quot;Please pass a numerical value to this function&quot;
   }
+  else if (is.numeric(number)) {
+     if (number &gt;= 0) {
+    absvalue &lt;- number
+    }
     else if (number &lt; 0) {
       absvalue &lt;- number * -1
     }
+  }
   absvalue
 }
 
@@ -445,6 +458,8 @@ abs_value(-124)</code></pre>
 <pre><code>## [1] 0</code></pre>
 <pre class="r"><code>abs_value(424013551)</code></pre>
 <pre><code>## [1] 424013551</code></pre>
+<pre class="r"><code>abs_value(&quot;string&quot;)</code></pre>
+<pre><code>## [1] &quot;Please pass a numerical value to this function&quot;</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Hard mode: add an error check to that function that prints out the
 string “Please pass a numerical value to this function” if the user
@@ -455,6 +470,20 @@ passes the function a string.
 relevant here</li>
 </ul></li>
 </ol>
+<pre class="r"><code>hard_mode &lt;- function(check) {
+  if (is.character(check)) {
+    statement &lt;- &quot;Please pass a numerical value to this function&quot;
+  }
+    else if (is.numeric(check)) {
+      statement &lt;- &quot;good job buddy&quot;
+    }
+  statement
+}
+  
+hard_mode(&quot;same time tomorrow?&quot;)</code></pre>
+<pre><code>## [1] &quot;Please pass a numerical value to this function&quot;</code></pre>
+<pre class="r"><code>hard_mode(315)</code></pre>
+<pre><code>## [1] &quot;good job buddy&quot;</code></pre>
 <p>```</p>
 </div>
 
